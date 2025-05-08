@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Pen, FileUp, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import "remixicon/fonts/remixicon.css";
 import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
@@ -50,7 +50,9 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
               onClick={onToggleSidebar}
               className="mr-2 text-white hover:bg-white/20"
             >
-              {isSidebarVisible ? <PanelLeftClose className="h-4 w-4" /> : <PanelLeftOpen className="h-4 w-4" />}
+              {isSidebarVisible ? 
+                <i className="ri-side-bar-fill h-4 w-4"></i> : 
+                <i className="ri-side-bar-line h-4 w-4"></i>}
             </Button>
           )}
           <div className="flex flex-col">
@@ -72,7 +74,7 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
                   >
                     {pdfName}
                   </span>
-                  <Pen className="w-4 h-4 ml-2 text-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <i className="ri-pencil-line w-4 h-4 ml-2 text-orange opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
               )
             )}
@@ -93,7 +95,7 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
           />
           <label htmlFor="pdf-upload">
             <Button variant="secondary" className="bg-orange/20 text-white hover:bg-orange/30" asChild>
-              <span><FileUp className="mr-2 h-4 w-4" />{pdfName ? 'Alterar PDF' : 'Adicionar PDF'}</span>
+              <span><i className="ri-file-upload-line mr-2 h-4 w-4"></i>{pdfName ? 'Alterar PDF' : 'Adicionar PDF'}</span>
             </Button>
           </label>
           {pdfName && numPages > 0 && (
@@ -107,13 +109,13 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
               />
               <label htmlFor="pdf-merge">
                 <Button variant="secondary" className="bg-orange/20 text-white hover:bg-orange/30" asChild>
-                  <span><FileUp className="mr-2 h-4 w-4" />Adicionar PDF</span>
+                  <span><i className="ri-file-upload-line mr-2 h-4 w-4"></i>Adicionar PDF</span>
                 </Button>
               </label>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="secondary" className="bg-orange/20 text-white hover:bg-orange/30">
-                    <Download className="mr-2 h-4 w-4" />
+                    <i className="ri-download-line mr-2 h-4 w-4"></i>
                     Salvar PDF
                   </Button>
                 </DropdownMenuTrigger>

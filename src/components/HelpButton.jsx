@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HelpCircle } from 'lucide-react';
+import "remixicon/fonts/remixicon.css";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -30,7 +30,7 @@ const HelpButton = () => {
           size="icon"
           className="fixed bottom-4 right-4 rounded-full z-50 bg-navy text-orange border-none hover:bg-navy/90"
         >
-          <HelpCircle className="h-4 w-4" />
+          <i className="ri-question-line h-4 w-4"></i>
         </Button>
       </DialogTrigger>
       <DialogContent>

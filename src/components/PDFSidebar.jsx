@@ -2,7 +2,7 @@
 import React from 'react';
 import { Document, Page } from 'react-pdf';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { Trash2 } from 'lucide-react';
+import "remixicon/fonts/remixicon.css";
 import { Button } from "@/components/ui/button";
 
 const PDFSidebar = ({ file, pages, onPageClick, onDragEnd, onDeletePage }) => {
@@ -39,7 +39,7 @@ const PDFSidebar = ({ file, pages, onPageClick, onDragEnd, onDeletePage }) => {
                               onDeletePage(index);
                             }}
                           >
-                            <Trash2 className="w-4 h-4" />
+                            <i className="ri-delete-bin-line w-4 h-4"></i>
                           </Button>
                         </div>
                         <p className="text-center text-sm mt-1 text-white">

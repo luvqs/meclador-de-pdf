@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
@@ -6,7 +5,7 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 import PDFSidebar from '../components/PDFSidebar';
 import Navbar from '../components/Navbar';
 import { PDFDocument } from 'pdf-lib';
-import { FileIcon } from 'lucide-react';
+import "remixicon/fonts/remixicon.css";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -55,7 +54,7 @@ const DragDropArea = ({ onFileChange }) => {
       onDragOver={handleDragOver}
       onDrop={handleDrop}
     >
-      <FileIcon className="w-16 h-16 text-orange mb-4" />
+      <i className="ri-file-line text-orange text-6xl mb-4"></i>
       <p className="text-xl font-semibold text-navy mb-2">Arraste e solte seu PDF aqui</p>
       <p className="text-sm text-navy mb-4">ou</p>
       <label htmlFor="pdf-upload" className="cursor-pointer bg-navy text-orange px-4 py-2 rounded hover:bg-navy/90 transition-colors">
