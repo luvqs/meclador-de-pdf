@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
@@ -58,7 +59,7 @@ const DragDropArea = ({ onFileChange }) => {
       <p className="text-xl font-semibold text-navy mb-2">Arraste e solte seu PDF aqui</p>
       <p className="text-sm text-navy mb-4">ou</p>
       <label htmlFor="pdf-upload" className="cursor-pointer bg-navy text-orange px-4 py-2 rounded hover:bg-navy/90 transition-colors">
-        Escolher PDF
+        Adicionar PDF
       </label>
       <input
         id="pdf-upload"
