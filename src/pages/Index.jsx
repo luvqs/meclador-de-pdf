@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
@@ -47,18 +48,18 @@ const DragDropArea = ({ onFileChange }) => {
   return (
     <div
       className={`flex flex-col items-center justify-center h-full border-4 border-dashed rounded-lg p-8 transition-colors ${
-        isDragging ? 'border-purple-500 bg-purple-50' : 'border-purple-300'
+        isDragging ? 'border-orange bg-orange/10' : 'border-orange/50'
       }`}
       onDragEnter={handleDragEnter}
       onDragLeave={handleDragLeave}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
     >
-      <FileIcon className="w-16 h-16 text-purple-400 mb-4" />
-      <p className="text-xl font-semibold text-purple-700 mb-2">Drag & Drop your PDF here</p>
-      <p className="text-sm text-purple-500 mb-4">or</p>
-      <label htmlFor="pdf-upload" className="cursor-pointer bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded hover:from-purple-600 hover:to-pink-600 transition-colors">
-        Choose PDF
+      <FileIcon className="w-16 h-16 text-orange mb-4" />
+      <p className="text-xl font-semibold text-navy mb-2">Arraste e solte seu PDF aqui</p>
+      <p className="text-sm text-navy mb-4">ou</p>
+      <label htmlFor="pdf-upload" className="cursor-pointer bg-navy text-orange px-4 py-2 rounded hover:bg-navy/90 transition-colors">
+        Escolher PDF
       </label>
       <input
         id="pdf-upload"
@@ -93,7 +94,7 @@ const Index = () => {
       setPdfName(file.name);
       setCurrentPage(1);
     } else {
-      alert("Please select a valid PDF file.");
+      alert("Por favor, selecione um arquivo PDF válido.");
     }
   };
 
@@ -146,8 +147,8 @@ const Index = () => {
         setPdfFile(newPdfUrl);
       }
     } catch (error) {
-      console.error('Error deleting page:', error);
-      alert('An error occurred while deleting the page. Please try again.');
+      console.error('Erro ao excluir página:', error);
+      alert('Ocorreu um erro ao excluir a página. Por favor, tente novamente.');
     }
   };
 
@@ -170,16 +171,16 @@ const Index = () => {
         
         if (saveAs) {
           setIsSaveAsModalOpen(true);
-          setSaveAsFileName(pdfName || 'modified.pdf');
+          setSaveAsFileName(pdfName || 'modificado.pdf');
         } else {
-          link.download = pdfName || 'modified.pdf';
+          link.download = pdfName || 'modificado.pdf';
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
         }
       } catch (error) {
-        console.error('Error saving PDF:', error);
-        alert('An error occurred while saving the PDF. Please try again.');
+        console.error('Erro ao salvar PDF:', error);
+        alert('Ocorreu um erro ao salvar o PDF. Por favor, tente novamente.');
       }
     }
   };
@@ -217,11 +218,11 @@ const Index = () => {
         setNumPages(existingPdfDoc.getPageCount());
         setPageOrder(Array.from({ length: existingPdfDoc.getPageCount() }, (_, i) => i + 1));
       } catch (error) {
-        console.error('Error merging PDF:', error);
-        alert('An error occurred while merging the PDF. Please try again.');
+        console.error('Erro ao adicionar PDF:', error);
+        alert('Ocorreu um erro ao adicionar o PDF. Por favor, tente novamente.');
       }
     } else {
-      alert("Please select a valid PDF file to merge.");
+      alert("Por favor, selecione um arquivo PDF válido para adicionar.");
     }
   };
 
@@ -281,7 +282,7 @@ const Index = () => {
 
   return (
     <>
-      <div className="flex flex-col h-screen bg-gradient-to-br from-purple-100 to-pink-100">
+      <div className="flex flex-col h-screen bg-orange/10">
         <Navbar 
           pdfName={pdfName} 
           currentPage={currentPage} 
@@ -307,7 +308,7 @@ const Index = () => {
           )}
           <div className="flex-1 p-4 overflow-hidden relative">
             {pdfFile ? (
-              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white shadow-lg h-full">
+              <div className="border border-orange/20 rounded-lg overflow-hidden bg-white shadow-lg h-full">
                 <div ref={mainContentRef} className="overflow-y-auto h-full">
                   <Document
                     file={pdfFile}
@@ -336,12 +337,12 @@ const Index = () => {
       <Dialog open={isSaveAsModalOpen} onOpenChange={setIsSaveAsModalOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Save As</DialogTitle>
+            <DialogTitle>Salvar Como</DialogTitle>
           </DialogHeader>
           <Input
             value={saveAsFileName}
             onChange={(e) => setSaveAsFileName(e.target.value)}
-            placeholder="Enter file name"
+            placeholder="Digite o nome do arquivo"
             onKeyDown={(e) => {
               if (e.key === 'Enter' && saveAsFileName.trim()) {
                 handleSaveAs();
@@ -349,8 +350,8 @@ const Index = () => {
             }}
           />
           <DialogFooter>
-            <Button onClick={() => setIsSaveAsModalOpen(false)}>Cancel</Button>
-            <Button onClick={handleSaveAs}>Save</Button>
+            <Button onClick={() => setIsSaveAsModalOpen(false)}>Cancelar</Button>
+            <Button onClick={handleSaveAs}>Salvar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

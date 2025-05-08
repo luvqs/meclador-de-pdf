@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -73,4 +74,20 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.bg-gradient-primary {
+  @apply bg-gradient-to-r from-navy to-orange;
+}
+
+.bg-gradient-secondary {
+  @apply bg-gradient-to-br from-navy to-navy/90;
+}
+
+.bg-hover-gradient {
+  @apply bg-gradient-to-r from-navy/90 to-orange/90;
+}
+
+.btn-gradient {
+  @apply bg-gradient-to-r from-navy to-orange text-white hover:from-navy/90 hover:to-orange/90;
 }

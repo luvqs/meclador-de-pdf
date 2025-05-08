@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HelpCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -11,14 +12,14 @@ import {
 
 const HelpButton = () => {
   const features = [
-    "Upload and view PDF files",
-    "Navigate through pages",
-    "Reorder pages via drag and drop",
-    "Delete pages",
-    "Merge PDFs",
-    "Save and download modified PDFs",
-    "Rename PDFs",
-    "Change existing PDF",
+    "Adicionar e visualizar arquivos PDF",
+    "Navegar pelas páginas",
+    "Reorganizar páginas com arrastar e soltar",
+    "Excluir páginas",
+    "Adicionar PDFs",
+    "Salvar e baixar PDFs modificados",
+    "Renomear PDFs",
+    "Alterar PDF existente",
   ];
 
   return (
@@ -27,14 +28,14 @@ const HelpButton = () => {
         <Button
           variant="outline"
           size="icon"
-          className="fixed bottom-4 right-4 rounded-full z-50 bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none hover:from-purple-600 hover:to-pink-600"
+          className="fixed bottom-4 right-4 rounded-full z-50 bg-navy text-orange border-none hover:bg-navy/90"
         >
           <HelpCircle className="h-4 w-4" />
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>PDF Editor Features</DialogTitle>
+          <DialogTitle>Recursos do Editor de PDF</DialogTitle>
         </DialogHeader>
         <ul className="list-disc pl-5 space-y-2">
           {features.map((feature, index) => (

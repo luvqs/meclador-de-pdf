@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Merge, Pen, FileUp, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { Download, Pen, FileUp, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
@@ -39,7 +40,7 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
   };
 
   return (
-    <nav className="bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg p-4">
+    <nav className="bg-navy shadow-lg p-4">
       <div className="flex justify-between items-center text-white">
         <div className="flex items-center space-x-4">
           {showSidebarToggle && (
@@ -66,18 +67,18 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
               ) : (
                 <div className="flex items-center group">
                   <span
-                    className="text-sm font-medium text-gray-700 cursor-pointer"
+                    className="text-sm font-medium text-orange cursor-pointer"
                     onClick={handleTitleClick}
                   >
                     {pdfName}
                   </span>
-                  <Pen className="w-4 h-4 ml-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <Pen className="w-4 h-4 ml-2 text-orange opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               )
             )}
             {pdfName && numPages > 0 && (
-              <div className="text-xs text-gray-600">
-                Page {currentPage} of {numPages}
+              <div className="text-xs text-orange">
+                Página {currentPage} de {numPages}
               </div>
             )}
           </div>
@@ -91,8 +92,8 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
             id="pdf-upload"
           />
           <label htmlFor="pdf-upload">
-            <Button variant="secondary" className="bg-white/20 text-white hover:bg-white/30" asChild>
-              <span><FileUp className="mr-2 h-4 w-4" />{pdfName ? 'Change PDF' : 'Upload PDF'}</span>
+            <Button variant="secondary" className="bg-orange/20 text-white hover:bg-orange/30" asChild>
+              <span><FileUp className="mr-2 h-4 w-4" />{pdfName ? 'Alterar PDF' : 'Adicionar PDF'}</span>
             </Button>
           </label>
           {pdfName && numPages > 0 && (
@@ -105,20 +106,20 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
                 id="pdf-merge"
               />
               <label htmlFor="pdf-merge">
-                <Button variant="secondary" className="bg-white/20 text-white hover:bg-white/30" asChild>
-                  <span><Merge className="mr-2 h-4 w-4" />Merge PDF</span>
+                <Button variant="secondary" className="bg-orange/20 text-white hover:bg-orange/30" asChild>
+                  <span><FileUp className="mr-2 h-4 w-4" />Adicionar PDF</span>
                 </Button>
               </label>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="secondary" className="bg-white/20 text-white hover:bg-white/30">
+                  <Button variant="secondary" className="bg-orange/20 text-white hover:bg-orange/30">
                     <Download className="mr-2 h-4 w-4" />
-                    Save PDF
+                    Salvar PDF
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem onClick={onSave}>Save</DropdownMenuItem>
-                  <DropdownMenuItem onClick={onSaveAs}>Save As</DropdownMenuItem>
+                  <DropdownMenuItem onClick={onSave}>Salvar</DropdownMenuItem>
+                  <DropdownMenuItem onClick={onSaveAs}>Salvar Como</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </>

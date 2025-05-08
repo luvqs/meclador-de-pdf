@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Document, Page } from 'react-pdf';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const PDFSidebar = ({ file, pages, onPageClick, onDragEnd, onDeletePage }) => {
   return (
-    <div className="w-64 h-screen overflow-y-auto bg-gradient-to-b from-purple-500 to-pink-500 p-4 border-r border-white/20">
+    <div className="w-64 h-screen overflow-y-auto bg-navy p-4 border-r border-white/20">
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="pdf-pages">
           {(provided) => (
@@ -42,7 +43,7 @@ const PDFSidebar = ({ file, pages, onPageClick, onDragEnd, onDeletePage }) => {
                           </Button>
                         </div>
                         <p className="text-center text-sm mt-1 text-white">
-                          Page {index + 1}
+                          Página {index + 1}
                         </p>
                       </div>
                     )}
