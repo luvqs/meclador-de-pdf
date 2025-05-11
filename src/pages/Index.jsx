@@ -5,6 +5,7 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import PDFSidebar from '../components/PDFSidebar';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { PDFDocument } from 'pdf-lib';
 import "remixicon/fonts/remixicon.css";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
@@ -333,6 +334,7 @@ const Index = () => {
             )}
           </div>
         </div>
+        <Footer />
       </div>
       <Dialog open={isSaveAsModalOpen} onOpenChange={setIsSaveAsModalOpen}>
         <DialogContent>

@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import "remixicon/fonts/remixicon.css";
 import { Input } from "@/components/ui/input";
+import Logo from './Logo';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -62,6 +62,8 @@ const Navbar = ({ pdfName, currentPage, numPages, onFileChange, onSave, onSaveAs
                 <i className="ri-side-bar-line h-4 w-4"></i>}
             </Button>
           )}
+          <Logo className="mr-4" />
+          
           <div className="flex flex-col">
             {pdfName && (
               isEditingTitle ? (
